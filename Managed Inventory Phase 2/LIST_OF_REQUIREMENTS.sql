@@ -1,4 +1,4 @@
-/*
+/************************************************** REQUIREMENTS ********************************************
 
 1. new Requested By - 'Inventory Management'
 
@@ -43,9 +43,33 @@
 	a. Device Price = current catalog price 
 	b. Whether the device(s) should be charged in a lump sum or as installments is based on what's configured for that device on the Inventory Management section of the carrier account 
 
+************************************************** REQUIREMENTS *********************************************/
 
 
 
 
+/************************************************** DB SETUP *********************************************
 
-*/
+1. new Requested By - 'Inventory Management',
+2. mew Account - vCom - Pre-Purchased Hardware account (for vCom Solutions Service Provider).
+
+2. TABLE 1 - Holds records of all Store devices that needs to be moved to customer spare
+
+3 [DONE]. TABLE 2 (ReplenishmentOrdersLog) - Holds records of needed Replenishment orders for customers
+
+4. New Procedure that checks for all Customers MI and then adds items to TABLE 1 that are unused in store more than Inventory Period.
+5. New Procedure that checks for all Customers MI and then adds items to TABLE 2 that need Replenishment Orders.
+
+6. New Procedure that reads data from TABLE 1 and CREATES & COMPLETES Spare orders that moves devices from store to Customer Spare
+7. New Procedure that reads data from TABLE 2 and creates Spare orders under vCom Solutions Service Provided that adds devices to store for a customer
+	a. Upon completing this Spare Order, these devices should be moved to vCom store for that Customer
+
+************************************************** DB SETUP *********************************************/
+
+
+
+
+USE mobility
+go
+
+select * from sys.procedures where name like '%_spare%'
