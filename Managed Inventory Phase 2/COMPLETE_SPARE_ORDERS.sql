@@ -134,6 +134,15 @@ COLUMNS :
 ---- PARAMS
 1. 
 
+------------- SHIPPING DETAILS
+shipping type - ground
+address - coorporate address
+Attention to name - N/A
+Tracking no - N/A
+Ship date - Date of completion
+Shipping Vendor - Other
+First Name, LastName - not required.
+
 
 ---- TABLES
 
