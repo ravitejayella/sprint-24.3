@@ -30,7 +30,13 @@ SELECT TOP 5 ReplenishmentOrdersLogID -- limiting 5 as batch size
 --An INSERT EXEC statement cannot be nested.	Charges_GetOtherOrderCharges
 
 select * from MobilityOrders where Mobilityorderid = 118875
-select * from MobilityOrderItems where Mobilityorderid = 118870
+select * from MobilityOrderItems where Mobilityorderid in  (118870,
+118889,
+118890,
+118891,
+118892,
+118893,
+118894)
 
 select * from MobilityOrderXDevices where Mobilityorderid = 118870
 
@@ -49,6 +55,7 @@ select * from sys.tables where name like '%customer%%device%'
 
 select * from CustomerXDeviceSpecialPrice where customerID = 112275 order by 1 desc
 
+SELECT customerid, carrierid, customerXCarrierAccountsID, * FROM EquipmentInventory where EquipmentInventoryMasterID = 1711
 
-
+SELECT top 10 customerid, carrierid, CarrierAccountID, * FROM SpareInventory -- where EquipmentInventoryMasterID = 1711
 

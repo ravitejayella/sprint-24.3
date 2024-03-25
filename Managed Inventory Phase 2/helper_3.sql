@@ -101,5 +101,15 @@ SELECT TOP 1 1
 						AND StatusID = 1
 
 
+----------------------------------------------------------------------------------
 
+SELECT DeviceID, ReplenishmentCCAID, count(*) AS RefillCount FROM MobilityOrderItems moi (NOLOCK)
+JOIN MobilityOrderXDevices moxd (NOLOCK) ON moi.MobilityOrderItemID = moxd.MobilityOrderItemID 
+WHERE ISNULL(ReplenishmentCCAID, 0) <> 0
+	AND moi.IsActive = 1
+	AND moi.LineStatusMasterID NOT IN (5001, 7001)
+GROUP BY DeviceID, ReplenishmentCCAID
+
+
+select * from Linestatusmaster
 sp_helptext CustomerXProductCatalog_Insert
