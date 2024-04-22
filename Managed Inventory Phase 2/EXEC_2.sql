@@ -6,6 +6,7 @@ select * from ReplenishmentOrdersLog
 where isactive = 1
 and isreplenished = 0
 
+
 SELECT @@TRANCOUNT
 
 EXEC [dbo].[CustomerCarrierAccounts_UpdateReplenishmentLog]
